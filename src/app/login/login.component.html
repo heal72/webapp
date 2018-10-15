@@ -1,0 +1,20 @@
+<div style="margin-top: 100px;">
+    <div class="col-md-4 col-xs-12 col-md-offset-4">
+        <div style="color: red">{{loginResponse.message}}</div>
+        <form #loginForm="ngForm" >
+          <div class="input-group">
+              <label for="username">User Name</label>
+              <input id="username" name="username" type="text" class="form-control" autocomplete="off" aria-describedby="basic-addon1" [(ngModel)]="loginCredentials.username" required>
+          </div>
+          <br>
+          <div class="input-group">
+              <label for="password">User Name</label>
+              <input id="password" name="password" type="password" class="form-control" autocomplete="off" aria-describedby="basic-addon1" [(ngModel)]="loginCredentials.password" required>
+          </div>
+          <br>
+          <div class="btn-group admin-login-btn" role="group" aria-label="...">
+              <button type="submit" class="btn btn-success btn-group-justified" (click)="loginRequest()">LOGIN</button>
+          </div>
+        </form>
+    </div>
+</div>

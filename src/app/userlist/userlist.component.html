@@ -1,0 +1,23 @@
+<div>
+  <button class="btn btn-success" [routerLink]="['/allOrders']"> View all orders </button>
+</div>
+
+<ng-template ngFor let-user let-i="index" [ngForOf]="userList$ | async">
+  <div class="panel panel-default panelStyle" [routerLink]="['/vendor', user._id]">
+    <div class="panel-heading" style="display: flex">
+      <div style="flex: 1">
+        {{user.name}}
+      </div>
+      <div style="text-align: right; flex: 1">
+        <button class="btn" [ngClass]="{'btn-danger' : user.vendorCheckinStatus, 'btn-success': !user.vendorCheckinStatus}"
+          (click)="toggleCheckinStatus(user._id, user.vendorCheckinStatus, i, $event)">{{user.vendorCheckinStatus ? "Check Out": "Check
+          In"}}</button>
+      </div>
+    </div>
+    <div class="panel-body">
+      <span [availabilityIndicator]="user.vendorCheckinStatus">
+        &nbsp;
+      </span>
+    </div>
+  </div>
+</ng-template>

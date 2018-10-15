@@ -1,1 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+p, ul, [class^="col-"], [class*="col-"] {
+  margin: 0;
+  padding: 0;
+}

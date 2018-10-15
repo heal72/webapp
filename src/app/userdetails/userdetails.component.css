@@ -1,0 +1,14 @@
+ul{
+  list-style: none;
+}
+.info-display{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  padding: 5px;
+  border: 1px solid #ddd;
+}
+
+.orderDetails{
+  padding: 10px;
+}

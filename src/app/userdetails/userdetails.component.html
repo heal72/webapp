@@ -1,0 +1,54 @@
+<div class="col-xs-12">
+  <div class="col-xs-3 info-display">
+    <ul *ngIf='userDetails$ | async'>
+      <li *ngFor="let key of userDetailsDataKeys">
+        <p><b>{{key}}</b></p>
+        <p>{{(userDetails$ | async)[key]}}</p>
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-9">
+    <ng-template ngFor let-order [ngForOf]="orders$ | async">
+      <div class="orderDetails col-xs-12">
+        <div class="panel panel-default panelStyle col-xs-12">
+          <div class="panel-heading  col-xs-12">{{order.orderShortId}} - {{order.status}} - {{order.timeOfOrder | date:'h:mm:ss a d MMM yyyy'}}
+            - {{order.orderAcceptedAt | date:'h:mm:ss a d MMM yyyy'}}</div>
+          <div class="panel-body col-xs-12">
+            <div class="col-xs-12">
+              <div class="buyerDetails col-xs-6">
+                <p>Customer Name - {{order.name}}</p>
+                <p>Customer Email - {{order.emailid}}</p>
+                <p>Customer Phone No - {{order.phoneno}}</p>
+                <p>Customer Email - {{order.emailid}}</p>
+                <p>Total Amount - {{order.total}} Rs</p>
+              </div>
+              <div class="sellerDetails col-xs-6">
+                  <p><b>Delivery Address -</b></p>
+                  <p>Name - {{order.deliveryDetails.name}}</p>
+                  <p>Address - {{order.deliveryDetails.address}}</p>
+                  <p>Locality - {{order.deliveryDetails.locality}}</p>
+                  <p>Pincode - {{order.deliveryDetails.pincode}}</p>
+                  <p>City - {{order.deliveryDetails.city}}</p>
+                  <p>State - {{order.deliveryDetails.state}}</p>
+                  <p>Phone No - {{order.deliveryDetails.phoneNo}}</p>
+                  <p><b>Extracted Components from google maps</b></p>
+                  <p>formattedAddress - {{order.deliveryDetails.extractedComponents.formattedAddress}}</p>
+                  <p>Lat, long - {{order.deliveryDetails.latLong[0]}}, {{order.deliveryDetails.latLong[1]}}</p>
+              </div>
+            </div>
+            <div class="products  col-xs-12"  style="padding: 10px;">
+              <div *ngFor='let item of order.items' class="panel panel-default panelStyle" style="padding: 10px;">
+                <p>Name - {{item.name}}</p>
+                <p>Formatted Name - {{item.formatted_name}}</p>
+                <p>Manufacturer Name - {{item.manufacturer_name}}</p>
+                <p>Price per strip or bottle - {{item.pricePerStripOrBottle}}</p>
+                <p>Setting Price - {{item.sellingPrice}}</p>
+                <p>Qauntity - {{item.quantityInCart}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>
