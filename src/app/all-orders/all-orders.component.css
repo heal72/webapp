@@ -1,0 +1,15 @@
+nav {
+  text-align: center;
+}
+nav li{
+  cursor: pointer;
+}
+.displayOrders{
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.displayOrders .orderContainer{
+  width: 25%;
+  padding: 10px 10px 0 10px;
+}

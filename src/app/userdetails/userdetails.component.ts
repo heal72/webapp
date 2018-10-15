@@ -19,7 +19,7 @@ export class UserdetailsComponent implements OnInit {
   orders$: Observable<any>;
 
   constructor(private route: ActivatedRoute, private http: HttpClient) {
-    this.getUserIdFromUrl().subscribe( userId => {
+    this.getUserIdFromUrl().subscribe(userId => {
       this.userId = userId.toString();
     });
   }
@@ -29,10 +29,10 @@ export class UserdetailsComponent implements OnInit {
     this.getUserOrders(this.userId);
   }
 
-  getUserDetails = ( userId ) => {
-    this.http.get(`${environment.apiUrl}${constants.getUserDetails}${userId}`).subscribe( response => {
-      if(response['success']){
-        this.errorMessage = "";
+  getUserDetails = (userId) => {
+    this.http.get(`${environment.apiUrl}${constants.getUserDetails}${userId}`).subscribe(response => {
+      if (response['success']) {
+        this.errorMessage = '';
         this.userDetails$ = of(response['userDetails']);
         this.userDetailsDataKeys = Object.keys(response['userDetails']);
       } else {
@@ -41,16 +41,16 @@ export class UserdetailsComponent implements OnInit {
     })
   }
 
-  getUserOrders = ( userId ) => {
-    this.http.get(`${environment.apiUrl}${constants.getOrders}${userId}`).subscribe( response => {
-      if(response['success']) {
+  getUserOrders = (userId) => {
+    this.http.get(`${environment.apiUrl}${constants.getOrders}${userId}`).subscribe(response => {
+      if (response['success']) {
         this.orders$ = of(response['orders']);
       }
-    })
+    });
   }
   getUserIdFromUrl = () => {
-    return new Observable( observer => {
-      this.route.params.subscribe( params => {
+    return new Observable(observer => {
+      this.route.params.subscribe(params => {
         observer.next(params.userId);
       });
     });

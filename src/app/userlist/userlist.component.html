@@ -1,5 +1,5 @@
 <div>
-  <button class="btn btn-success" [routerLink]="['/allOrders']"> View all orders </button>
+  <button class="btn btn-success" [routerLink]="['/allOrders', '0']"> View all orders </button>
 </div>
 
 <ng-template ngFor let-user let-i="index" [ngForOf]="userList$ | async">

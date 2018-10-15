@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000/adminApi/'
+  // apiUrl: 'http://localhost:3000/adminApi/'
+  apiUrl: 'https://ecommapp2.herokuapp.com/adminApi/'
+
 };
 
 /*
